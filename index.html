@@ -6,6 +6,23 @@
 		<link href="stylesheet.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,900" rel="stylesheet">
 		<link rel="image_src" href="images/preview-image-here.png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			$(function() {
+			  $('a[href*=#]:not([href=#])').click(function() {
+				if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				  var target = $(this.hash);
+				  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				  if (target.length) {
+					$('html,body').animate({
+					  scrollTop: target.offset().top
+					}, 1000);
+					return false;
+				  }
+				}
+			  });
+			});
+		</script>
 	</head>
 
 	<body>
@@ -25,7 +42,7 @@
 				</ul>
 			</div>
 			<div class="nav-left">
-				<a href="#wrapper"><img src="images/logo-k-thick.png" alt="logo k" width="75"></a>
+				<a href="#wrapper"><img src="images/logo-k-thick-pink.png" alt="logo k" width="75"></a>
 			</div>
 			<div class="content-container">
 				<div class="center-name">
@@ -37,6 +54,7 @@
 							<a href="#project-title"><img src="images/arrow-down.png" alt="arrow" width="100"></a>
 						</div>
 				</div>
+				<!-- PROJECT START -->
 				<div id="project-title">
 					<h2>FUTURE PROJECTS</h2>
 				</div>
@@ -60,6 +78,7 @@
 						<a><img src="projects/p-yellow.png" alt="No project but comming soon"></a>
 					</div>
 				</div>
+				<!-- ABOUT START -->
 				<div id="about-container">
 					<div id="about-title">
 						<h2>ABOUT</h2>
@@ -72,6 +91,7 @@
 						Cphbusiness in Denmark. <br><br>I do not have a lot of professional experience but I'm one of the most motivated person you will find in this area and i love to create something new.<br><br>If you are interested in a multimedia designer intern winter 2018, you are more than welcome to send me an email. Contact info is below.</p>
 					</div>
 				</div>
+				<!-- CONTACT START -->
 				<div id="contact-container">
 					<div id="contact-title">
 						<h2>CONTACT</h2>
@@ -86,6 +106,6 @@
 					<div class="footer">
 						<p><a >&copy;2017 BjarturKristjánsson</a></p>
 					</div>
-			</div>	<!-- wrapper end -->
+			</div>	<!-- WRAPPER END -->
 	</body>
 </html>

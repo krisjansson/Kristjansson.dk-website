@@ -10,6 +10,9 @@ body {
 	background:url(images/patrick-tomasso-399557.jpg) no-repeat;
 	background-color: #132730;	
 	background-size:contain;
+	-webkit-background-size: contain;
+  	-moz-background-size: contain;
+  	-o-background-size: contain;
 	margin: 0;
 	padding: 0;
 	font-family: "Helvetica Neue", Helvetica, "sans-serif";
@@ -19,7 +22,7 @@ body {
 	position: fixed;
 	right: 0;
 	top: 0;
-	margin: 30px 11px 0 0;
+	margin: 2.2% 0.8% 0 0;
 	
 }
 .nav-right li {
@@ -76,6 +79,7 @@ body {
 }
 .arrow {
 	margin: 0 0 14% 0;
+	opacity: 80%;
 }
 .arrow a:hover {
 }
@@ -133,8 +137,8 @@ body {
 	padding: 3.5% 0 0 0;
 }
 #contact-container {
-	padding: 100px 0;
-	margin: 50px 0;
+	padding: 15% 0;
+	margin: 0 0;
 }
 
 #contact-title {
@@ -164,4 +168,38 @@ span {
 .footer p {
 	color: #9F9E9E;
 	justify-content: center;
+}
+export class SScroll{
+    constructor(){
+        this.delay=501      //ms
+        this.duration=500   //ms
+        this.lastClick=0
+    }
+
+    lastClick
+    delay
+    duration
+
+    scrollTo=(destID)=>{
+        /* To prevent "bounce" */
+        /* https://stackoverflow.com/a/28610565/3405291 */
+        if(this.lastClick>=(Date.now()-this.delay)){return}
+        this.lastClick=Date.now()
+
+        const dest=document.getElementById(destID)
+        const to=dest.offsetTop
+        if(document.body.scrollTop==to){return}
+        const diff=to-document.body.scrollTop
+        const scrollStep=Math.PI / (this.duration/10)
+        let count=0
+        let currPos
+        const start=window.pageYOffset
+        const scrollInterval=setInterval(()=>{
+            if(document.body.scrollTop!=to){
+                count++
+                currPos=start+diff*(.5-.5*Math.cos(count*scrollStep))
+                document.body.scrollTop=currPos
+            }else{clearInterval(scrollInterval)}
+        },10)
+    }
 }
